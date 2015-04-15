@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title>Jogo da Forka (Hangman)</title>
+	<meta charset='utf-8'>
+</head>
+<body>
+	<div id='forkaDiv'>
+		<?php echo "<img class='hang' src='./images/hanged".$game->manHealth.".png' width='30%' height='90%'>"?>
+		<div id='guessedDiv'>
+
+			<?php
+				$psw = str_split($game->password);
+
+				
+				
+				foreach ($psw as $index => $letter) {
+					if (in_array($index, $game->guessedPositions)) {
+							echo "<p class='hidden' id=".$index.">".$letter."</p>";
+					}else{
+						echo "<p class='hidden' id=".$index.">_</p>";
+					}
+
+					
+				}
+
+			?>
+			<p id="attempts"> Letras erradas: 
+				<?php 
+					foreach ($game->missedLetters as $letter){
+						echo $letter.'  ';
+					 } 
+				?>
+			</p>
+		</div>		
+	</div>
+<!--	<div>
+		<?php 
+			echo "palavra: ".$game->password."<br/>";
+			echo "Vida: ".$game->manHealth."<br/>";
+			echo "Posicoes acertadas: ";
+			foreach ($game->guessedPositions as $position){	echo $position;}
+			echo "<br/>";
+			echo "Letras erradas: ";
+			foreach($game->missedLetters as $letter){ echo $letter;};
+			echo "<br/>";
+			echo "Letras acertadas: ";
+			foreach($game->guessedLetters as $letter){ echo $letter;};
+		?>
+	</div>-->
+
+</body>
+</html>
