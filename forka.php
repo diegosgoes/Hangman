@@ -13,10 +13,18 @@
 	</div>
 	<?php
 	}
-	else{	
-		require_once('forka.html');
-		echo "
-		<p>PARABÉNS, VOCÊ SALVOU O NED =) !!!</p>
-		<a href='index.php'><button>Começar nova partida!</button></a>";
+	else{
+		if ($game->checkGameEnd() == 'hanged'){
+			require_once('forka.html');
+			echo "
+			<p>OH NÃO, NED FOI ENFORCADO =O !!!</p>			
+			<a href='index.php'><button>Começar nova partida!</button></a>";
+		}else{
+			require_once('forka.html');
+			echo "
+			<p>PARABÉNS, VOCÊ SALVOU O NED =) !!!</p>
+			<a href='index.php'><button>Começar nova partida!</button></a>";
+		}	
+		
 	}
 ?>
